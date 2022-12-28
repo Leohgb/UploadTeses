@@ -1,0 +1,13 @@
+<div class="card ">
+    <div class="card-body shadow-sm">
+        <h1>{{Postagem.titulo}}</h1>
+            <hr>
+        <small>Data de publicação: {{Postagem.data}}</small>
+        <hr>
+        <small>Descrição: {{Postagem.descricao}}</small>
+        <hr>
+            <a href="{{Postagem.documentacao.url}}" download>
+             <embed src="{{Postagem.documentacao.url}}"  width="50%" height="300" style="border-radius: 1%;">
+                </a>         
+    </div>
+</div>
