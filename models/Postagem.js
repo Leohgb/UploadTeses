@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
+var d = new Date();
+
 const Postagem = new Schema({
     titulo:{
         type:String,
@@ -27,8 +29,8 @@ const Postagem = new Schema({
         key: String,
         url: String,
         createdAt:{
-            type: Date,
-            default: Date.now,
+            type: String,
+            default: d.toLocaleDateString(),
         }, 
     },
     usuarios:{
@@ -36,8 +38,8 @@ const Postagem = new Schema({
         required:true
     },
     data: {
-        type: Date, 
-        default: Date.now()
+        type: String, 
+        default: d.toLocaleDateString()
     }
 })
 
