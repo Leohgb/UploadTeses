@@ -61,7 +61,7 @@ app.use(morgan("dev"));
             useUnifiedTopology: true,
         }
         try{
-        mongoose.connect("mongodb+srv://Leohgb:6hjbCXAITqygK8My@cluster0.ez5ve9t.mongodb.net/?retryWrites=true&w=majority").then(() => {
+        mongoose.connect("mongodb+srv://Leohgb:XzV3NmamM63FswVy@cluster0.ez5ve9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
             console.log("Conectado ao mongo")
         }).catch((err) =>{
             
