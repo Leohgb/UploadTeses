@@ -17,7 +17,6 @@ const usuarios = require("./routes/usuario")
 const passport = require("passport")
 const { eUser } = require("./helpers/eUser")
 
-
 //require("dotenv").config();
 
 require("./config/auth")(passport)
@@ -61,16 +60,14 @@ const database = module.exports = () => {
         useUnifiedTopology: true,
     }
     try {
-        mongoose.connect("mongodb+srv://Leohgb:XzV3NmamM63FswVy@cluster0.ez5ve9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
-            console.log("Conectado ao mongo")
-        }).catch((err) => {
-
-            console.log("Erro ao se conectar: " + err)
-        }
-        )
+        mongoose.connect("mongodb+srv://Leohgb:XzV3NmamM63FswVy@cluster0.ez5ve9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+            .then(() => {
+                console.log("Conectado ao mongo")
+            }).catch((err) => {
+                console.log("Erro ao se conectar: " + err)
+            })
     } catch (err) {
         console.log("Erro ao se conectar: " + err)
-
     }
 }
 

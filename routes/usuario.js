@@ -15,7 +15,6 @@ const cloudinary = require("../config/cloudinary")
 const config = require("../config/nodemailer_auth.config");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("../config/nodemailer.config")
-const eAdmin = require('../helpers/eAdmin')
 
 router.get("/registro", (req, res) =>{
     res.render("usuarios/registro")
@@ -91,7 +90,6 @@ router.post("/registro", (req,res) =>{
 })
 
 router.get("/postagens", eUser, (req, res) =>{
-   
     Postagem.find({usuarios: req.user.email}).populate("categoria").sort({data:"desc"}).lean().then((postagens) => {
         res.render("usuarios/postagens", {postagens: postagens})
     }).catch((err) =>{
