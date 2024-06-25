@@ -1,4 +1,15 @@
 {
+  "name": "uploadteses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'No build step required",
+    "dev": "node src/index.js",
+    "server": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@cloudinary/html": "^1.5.0",
     "bcryptjs": "^2.4.3",
@@ -6,12 +17,12 @@
     "cloudinary": "^1.32.0",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "express-fileupload": "^1.4.0",
-    "express-handlebars": "^6.0.6",
+    "express-handlebars": "^6.0.7",
     "express-session": "^1.17.3",
     "file-mime-types": "^1.0.4",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.8",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.4",
     "morgan": "^1.10.0",
@@ -21,16 +32,5 @@
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
-  },
-  "name": "blogapp",
-  "version": "1.0.0",
-  "main": "src/index.js",
-  "scripts": {
-    "build": "handlebars src/views/ -f dist/templates.js",
-    "dev": "node src/index.js",
-    "server": "nodemon src/index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
 }
