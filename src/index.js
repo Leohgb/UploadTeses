@@ -9,17 +9,17 @@ const path = require("path")
 const mongoose = require("mongoose")
 const session = require("express-session")
 const flash = require("connect-flash")
-require("./models/Postagem")
+require("../models/Postagem")
 const Postagem = mongoose.model("postagens")
-require("./models/Categorias")
+require("../models/Categorias")
 const Categoria = mongoose.model("categorias")
 const usuarios = require("./routes/usuario")
 const passport = require("passport")
-const { eUser } = require("./helpers/eUser")
+const { eUser } = require("../helpers/eUser")
 
 //require("dotenv").config();
 
-require("./config/auth")(passport)
+require("../config/auth")(passport)
 
 app.use(express.json());
 //express lidar com requisições no padrão urlencoded
@@ -46,6 +46,8 @@ app.use(bodyParser.json())
 //handlebars
 app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+app.set("views", path.join(__dirname, "views"));
+
 //Mongoose 
 const database = module.exports = () => {
     const connectionParams = {
@@ -70,7 +72,7 @@ database();
 
 //criando um helper para limitar o numero de postagens
 //na pagina principal
-app.use(express.static(path.join(__dirname, "/public")))
+app.use(express.static(__dirname + "../" + "/public"))
 var hbs = handlebars.create({
     helpers: {
         limit: function (arr, limit) {

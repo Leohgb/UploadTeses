@@ -2,12 +2,12 @@
 const express = require("express")
 const router = express.Router()
 const mongoose = require("mongoose")
-require("../models/Categorias")
+require("../../models/Categorias")
 const Categoria = mongoose.model("categorias")
-require("../models/Postagem")
+require("../../models/Postagem")
 const Postagem = mongoose.model("postagens")
 //Pegar apenas a função eAdmin
-const {eAdmin}= require("../helpers/eAdmin")
+const {eAdmin}= require("../../helpers/eAdmin")
 
 router.get('/', eAdmin,  (req,res) => {
     res.render("admin/index")

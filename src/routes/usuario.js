@@ -1,20 +1,20 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-require("../models/Usuario")
+require("../../models/Usuario")
 const Postagem = mongoose.model("postagens")
 const Usuario = mongoose.model("usuarios")
 const bcrypt = require("bcryptjs")
 const passport = require("passport")
-require("../models/Categorias")
+require("../../models/Categorias")
 const Categoria = mongoose.model("categorias")
-const {eUser}= require("../helpers/eUser")
+const {eUser}= require("../../helpers/eUser")
 const multer = require('multer')
-const multerConfig = require('../config/multer')
-const cloudinary = require("../config/cloudinary")
-const config = require("../config/nodemailer_auth.config");
+const multerConfig = require('../../config/multer')
+const cloudinary = require("../../config/cloudinary")
+const config = require("../../config/nodemailer_auth.config");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("../config/nodemailer.config")
+const nodemailer = require("../../config/nodemailer.config")
 
 router.get("/registro", (req, res) =>{
     res.render("usuarios/registro")
