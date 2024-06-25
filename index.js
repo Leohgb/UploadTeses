@@ -21,10 +21,6 @@ const { eUser } = require("./helpers/eUser")
 
 require("./config/auth")(passport)
 
-const whitelist = [
-    '*'
-];
-
 app.use(express.json());
 //express lidar com requisições no padrão urlencoded
 app.use(express.urlencoded({ extended: true }));
@@ -41,21 +37,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 
-app.use(flash())
 //Middleware
-app.use((req, res, next) => {
-    const origin = req.get('referer');
-    const isWhitelisted = whitelist.find((w) => origin && origin.includes(w));
-    if (isWhitelisted) {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Authorization');
-        res.setHeader('Access-Control-Allow-Credentials', true);
-    }
-    // Pass to next layer of middleware
-    if (req.method === 'OPTIONS') res.sendStatus(200);
-    else next();
-});
+
 //Body Parser 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -83,7 +66,6 @@ const database = module.exports = () => {
 
 database();
 
-
 //Public
 
 //criando um helper para limitar o numero de postagens
@@ -104,7 +86,6 @@ app.engine('handlebars', hbs.engine);
 
 //Rotas
 app.get('/', (req, res) => {
-    // Specify helpers which are only registered on this instance.
 
     Postagem.find().lean().populate("categoria").sort({ data: "desc" }).then((postagens) => {
         res.render("index", { postagens: postagens })
@@ -112,8 +93,6 @@ app.get('/', (req, res) => {
         req.flash("error_msg", "Houve um erro interno")
         res.redirect("/404")
     })
-
-
 
 })
 
