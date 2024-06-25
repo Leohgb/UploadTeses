@@ -4,22 +4,22 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const morgan = require("morgan")
 const app = express()
-const admin = require("./routes/admin")
+const admin = require("../routes/admin")
 const path = require("path")
 const mongoose = require("mongoose")
 const session = require("express-session")
 const flash = require("connect-flash")
-require("./models/Postagem")
+require("../models/Postagem")
 const Postagem = mongoose.model("postagens")
-require("./models/Categorias")
+require("../models/Categorias")
 const Categoria = mongoose.model("categorias")
-const usuarios = require("./routes/usuario")
+const usuarios = require("../routes/usuario")
 const passport = require("passport")
-const { eUser } = require("./helpers/eUser")
+const { eUser } = require("../helpers/eUser")
 
 //require("dotenv").config();
 
-require("./config/auth")(passport)
+require("../config/auth")(passport)
 
 app.use(express.json());
 //express lidar com requisições no padrão urlencoded
